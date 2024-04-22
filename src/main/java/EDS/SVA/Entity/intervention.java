@@ -6,26 +6,20 @@ import static jakarta.persistence.GenerationType.AUTO;
 
 @Entity
 @Table(name = "intervention")
-public class intervention {
+public class intervention implements Serializable {
     @Id
     @GeneratedValue(strategy = AUTO)
     private Long codeinterv;
-
     @Column(name = "datedebinterv")
     private String datedebinterv;
-
     @Column(name = "datefininterv")
     private String datefininterv;
-
     @Column(name = "dureeinterv")
     private String dureeinterv;
-
     @Column(name = "observationinterv")
     private String observationinterv;
-
     @Column(name = "clotureinterv")
     private String clotureinterv;
-
     public intervention() {
         // Constructeur par défaut requis par JPA
     }

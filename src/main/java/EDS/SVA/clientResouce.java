@@ -22,8 +22,6 @@ public class clientResouce {
         List<client> clients = clientService.findAllClients();
         return new ResponseEntity<>(clients, HttpStatus.OK);
     }
-
-
     @GetMapping("/find/{id}")
     public ResponseEntity<client> getClientById(@PathVariable("id")Long id){
         client client = clientService.findClientById(id);

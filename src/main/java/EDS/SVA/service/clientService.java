@@ -27,18 +27,21 @@ public class clientService {
     public List<client> findAllClients(){
         return clientRepo.findAll();
     }
-    public client updateClient(client client, Long id, String nom, String prenom, String raisonSocial, String email,String adresse,String mf) {
+    public client updateClient(client client, Long id, String nom, String prenom, String raisonSocial, String adresse, String email, String mf) {
         Optional<client> optionalClient = clientRepo.findClientById(id);
         client myClient = optionalClient.orElseThrow(() -> new clientNotFoundException("Client by id " + id + " was not found"));
 
-        myClient.setAdresse(nom);
-        myClient.setAdresse(prenom);
+        // Utilisez les paramètres pour mettre à jour les propriétés du client
+        myClient.setNom(nom);
+        myClient.setPrenom(prenom);
         myClient.setRaisonSocial(raisonSocial);
         myClient.setAdresse(adresse);
         myClient.setEmail(email);
-        myClient.setMp(mf);
+        myClient.setMf(mf);
+
         // Vous pouvez également mettre à jour d'autres propriétés si nécessaire
 
+        // Enregistrez les modifications dans la base de données
         return clientRepo.save(myClient);
     }
     public client findClientById(Long id){

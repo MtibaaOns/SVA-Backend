@@ -1,5 +1,4 @@
 package EDS.SVA.Entity;
-
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import java.io.Serializable;
@@ -94,7 +93,7 @@ public class client implements Serializable {
         return mf;
     }
 
-    public void setMp(String mf) {
+    public void setMf(String mf) {
         this.mf = mf;
     }
 
