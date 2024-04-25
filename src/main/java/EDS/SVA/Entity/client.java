@@ -10,7 +10,8 @@ import static jakarta.persistence.GenerationType.AUTO;
 public class client implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false,updatable = false)
     private Long id;
     @Column(name = "nom")
     private String nom;

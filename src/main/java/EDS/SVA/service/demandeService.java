@@ -29,9 +29,9 @@ public class demandeService {
         return demandeRepo.findAll();
     }
 
-    public demande_intervention updateDemande(demande_intervention demande_intervention, Long numDem, String statut, String titre, String priorite, LocalDate dateFin, LocalDate dateDeb, String description) {
-        Optional<demande_intervention> optionalTicket = demandeRepo.findDemandeBynumDem(numDem);
-        demande_intervention myDemande = optionalTicket.orElseThrow(() -> new demandeNotFoundException("Client by id " + numDem + " was not found"));
+    public demande_intervention updateDemande(demande_intervention demande_intervention, Long numDem, String statut, String titre, String priorite, LocalDate dateDeb, LocalDate dateFin, String description) {
+        Optional<demande_intervention> optionalDemande = demandeRepo.findDemandeBynumDem(numDem);
+        demande_intervention myDemande = optionalDemande.orElseThrow(() -> new demandeNotFoundException("Client by id " + numDem + " was not found"));
 
         myDemande.setStatut(statut);
         myDemande.setTitre(titre);
@@ -49,8 +49,8 @@ public class demandeService {
                 .orElseThrow(() -> new clientNotFoundException("Client by id " + numDem + " was not found"));
     }
 
-    public void deleteTicket(Long numDem){
-        demandeRepo.deleteTicketBynumDem(numDem);
+    public void deleteDemande(Long numDem){
+        demandeRepo.deleteDemandeBynumDem(numDem);
     }
 
 

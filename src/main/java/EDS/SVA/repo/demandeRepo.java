@@ -7,5 +7,5 @@ public interface demandeRepo extends JpaRepository<demande_intervention,Long> {
     Optional<demande_intervention> findDemandeBynumDem(Long numDem);
 
 
-    void deleteTicketBynumDem(Long id);
+    void deleteDemandeBynumDem(Long id);
 }

@@ -8,7 +8,8 @@ import static jakarta.persistence.GenerationType.AUTO;
 @Table(name = "intervention")
 public class intervention implements Serializable {
     @Id
-    @GeneratedValue(strategy = AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false,updatable = false)
     private Long codeinterv;
     @Column(name = "datedebinterv")
     private String datedebinterv;
@@ -79,9 +80,6 @@ public class intervention implements Serializable {
     public void setClotureinterv(String clotureinterv) {
         this.clotureinterv = clotureinterv;
     }
-
-
-
     @Override
     public String toString() {
         return "intervention{" +

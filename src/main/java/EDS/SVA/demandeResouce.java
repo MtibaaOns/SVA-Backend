@@ -14,7 +14,7 @@ import java.util.List;
 @CrossOrigin("*")
 
 @RestController
-@RequestMapping("Tickets")
+@RequestMapping("Demandes")
 public class demandeResouce {
     private final demandeService demandeService;
 
@@ -33,19 +33,19 @@ public class demandeResouce {
     }
     @PostMapping("/add")
     public  ResponseEntity<demande_intervention> addDemande(@RequestBody demande_intervention demandeIntervention ){
-        demande_intervention newTicket = demandeService.addDemande(demandeIntervention) ;
-        return new ResponseEntity<>(newTicket, HttpStatus.CREATED);}
+        demande_intervention newDemande = demandeService.addDemande(demandeIntervention) ;
+        return new ResponseEntity<>(newDemande, HttpStatus.CREATED);}
     @PutMapping("/update/{numDem}")
-    public ResponseEntity<demande_intervention> updateDemande(@RequestBody demande_intervention demandeIntervention,@PathVariable Long numDem,@PathVariable String statut,@PathVariable String titre,@PathVariable String priorite,@PathVariable LocalDate dateFin,@PathVariable LocalDate dateDeb,@PathVariable String description) {
-        demande_intervention updateTicket = demandeService.updateDemande(demandeIntervention,numDem,statut,titre,priorite,dateFin,dateDeb,description);
-        return new ResponseEntity<>(updateTicket, HttpStatus.OK);
+    public ResponseEntity<demande_intervention> updateDemande(@RequestBody demande_intervention demandeIntervention,@PathVariable Long numDem,@RequestParam String statut,@RequestParam String titre,@RequestParam String priorite,@RequestParam LocalDate dateDeb,@RequestParam LocalDate dateFin,@RequestParam String description) {
+        demande_intervention updateDemande = demandeService.updateDemande(demandeIntervention,numDem,statut,titre,priorite,dateFin,dateDeb,description);
+        return new ResponseEntity<>(updateDemande, HttpStatus.OK);
     }
 
 
 
     @DeleteMapping("/delete/{numDem}")
-    public  ResponseEntity<?> deleteContrat(@PathVariable("numDem")Long numDem){
-        demandeService.deleteTicket(numDem); ;
+    public  ResponseEntity<?> deleteDemande(@PathVariable("numDem")Long numDem){
+        demandeService.deleteDemande(numDem); ;
         return new ResponseEntity<>(HttpStatus.OK);
 
     }

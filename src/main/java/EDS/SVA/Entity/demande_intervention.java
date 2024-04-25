@@ -19,7 +19,7 @@ public class demande_intervention implements Serializable {
     public demande_intervention(){
 
     }
-    public demande_intervention(Long numDem, String statut, String titre, String priorite, LocalDate dateFin, LocalDate dateDeb, String description) {
+    public demande_intervention(Long numDem, String statut, String titre, String priorite,  LocalDate dateDeb,LocalDate dateFin, String description) {
         this.numDem = numDem;
         this.statut = statut;
         this.titre = titre;

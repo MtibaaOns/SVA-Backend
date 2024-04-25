@@ -10,7 +10,8 @@ import static jakarta.persistence.GenerationType.AUTO;
 @Table(name = "specialite")
 public class specialite implements Serializable {
     @Id
-    @GeneratedValue(strategy = AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false,updatable = false)
     private Integer codeSpec;
     @Column(name = "libSpec")
     private String libSpec;
