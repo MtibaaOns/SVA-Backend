@@ -10,6 +10,8 @@ public class demande_intervention implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,updatable = false)
     private Long numDem;
+    @Column(name = "code")
+    private String code;
     private String statut;
     private String titre;
     private String priorite;
@@ -86,10 +88,19 @@ public class demande_intervention implements Serializable {
         this.description = description;
     }
 
+    public void setCode(String code) {
+        this.code = code;
+    }
+    public String getCode() {
+        return code;
+    }
+
+
     @Override
     public String toString() {
         return "Ticket{" +
                 "numDem=" + numDem +
+                ", code='" + code + '\'' +
                 ", statut='" + statut + '\'' +
                 ", titre='" + titre + '\'' +
                 ", priorite='" + priorite + '\'' +

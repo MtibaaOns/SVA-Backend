@@ -15,13 +15,18 @@ public class specialite implements Serializable {
     private Integer codeSpec;
     @Column(name = "libSpec")
     private String libSpec;
+    @Column(name = "code")
+    private String code;
+
     public specialite() {
         // Constructeur par défaut requis par JPA
     }
 
-    public specialite(String libSpec) {
+    public specialite(String libSpec, String code) {
         this.libSpec = libSpec;
+        this.code = code;
     }
+
     public Integer getCodeSpec() {
         return codeSpec;
     }
@@ -37,14 +42,21 @@ public class specialite implements Serializable {
     public void setLibSpec(String libSpec) {
         this.libSpec = libSpec;
     }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     @Override
     public String toString() {
         return "specialite{" +
                 "codeSpec=" + codeSpec +
                 ", libSpec='" + libSpec + '\'' +
-
+                ", code='" + code + '\'' +
                 '}';
     }
 }
-
-

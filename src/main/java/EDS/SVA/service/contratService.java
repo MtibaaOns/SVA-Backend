@@ -38,7 +38,7 @@ public class contratService {
         return contratRepo.findAll();
     }
 
-    public contrat updateContrat(contrat contrat, Long numcontart, String dateDebut, String dateFin, Integer nbInterMois, Integer nbInterAnnee, Long mtForfaitaire) {
+    public contrat updateContrat(contrat contrat, Long numcontart, LocalDate dateDebut, LocalDate dateFin, Integer nbInterMois, Integer nbInterAnnee, Double mtForfaitaire) {
         Optional<contrat> optionalContrat = contratRepo.findContratBynumcontrat(numcontart);
         contrat myContrat = optionalContrat.orElseThrow(() -> new contratNotFoundException("Contrat by id " + numcontart + " was not found"));
 

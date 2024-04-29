@@ -46,4 +46,5 @@ public class CategoriePieceResouce {
         categoriePieceService.deleteCategoriePiece(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
 }

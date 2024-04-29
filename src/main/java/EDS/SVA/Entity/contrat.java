@@ -2,6 +2,7 @@ package EDS.SVA.Entity;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "contrat")
@@ -10,16 +11,19 @@ public class contrat implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,updatable = false)
     private Long numcontrat;
-    private String dateDebut;
-    private String dateFin;
+
+    @Column(name = "code")
+    private String code;
+    private LocalDate dateDebut;
+    private LocalDate dateFin;
     private Integer nbInterMois;
     private Integer nbInterAnnee;
-    private Long mtForfaitaire;
+    private Double mtForfaitaire;
     public  contrat(){
 
     }
 
-    public contrat(Long numcontrat, String dateDebut, String dateFin, Integer nbInterMois, Integer nbInterAnnee, Long mtForfaitaire) {
+    public contrat(Long numcontrat, LocalDate dateDebut, LocalDate dateFin, Integer nbInterMois, Integer nbInterAnnee, Double mtForfaitaire) {
         this.numcontrat = numcontrat;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
@@ -31,11 +35,11 @@ public class contrat implements Serializable {
         this.numcontrat = numcontrat;
     }
 
-    public void setDateDebut(String dateDebut) {
+    public void setDateDebut(LocalDate dateDebut) {
         this.dateDebut = dateDebut;
     }
 
-    public void setDateFin(String dateFin) {
+    public void setDateFin(LocalDate dateFin) {
         this.dateFin = dateFin;
     }
 
@@ -47,19 +51,22 @@ public class contrat implements Serializable {
         this.nbInterAnnee = nbInterAnnee;
     }
 
-    public void setMtForfaitaire(Long mtForfaitaire) {
+    public void setMtForfaitaire(Double mtForfaitaire) {
         this.mtForfaitaire = mtForfaitaire;
+    }
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public Long getNumcontrat() {
         return numcontrat;
     }
 
-    public String getDateDebut() {
+    public LocalDate getDateDebut() {
         return dateDebut;
     }
 
-    public String getDateFin() {
+    public LocalDate getDateFin() {
         return dateFin;
     }
 
@@ -71,13 +78,20 @@ public class contrat implements Serializable {
         return nbInterAnnee;
     }
 
-    public Long getMtForfaitaire() {
+    public Double getMtForfaitaire() {
         return mtForfaitaire;
     }
+    public String getCode() {
+        return code;
+    }
+
+
+
     public String toString() {
         return "Contrat{" +
-                "id=" + numcontrat +
+                "numcontrat=" + numcontrat +
                 ", dateDebut=" + dateDebut +
+                ", code=" + code +
                 ", dateFin=" + dateFin +
                 ", nbInterMois=" + nbInterMois +
                 ", nbInterAnnee=" + nbInterAnnee +

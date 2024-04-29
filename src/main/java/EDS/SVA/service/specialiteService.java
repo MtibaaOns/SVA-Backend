@@ -28,24 +28,33 @@ public class specialiteService {
         return specialiteRepo.save(specialite);
     }
 
+    public specialite addSpecialite(String libSpec, String code) {
+        specialite newSpecialite = new specialite(libSpec, code);
+        Integer newcodeSpec = generateUniquecodeSpec();
+        newSpecialite.setCodeSpec(newcodeSpec);
+        return specialiteRepo.save(newSpecialite);
+    }
+
     private synchronized Integer generateUniquecodeSpec() {
         return ++idCounter2;
     }
-    public List<specialite> findAllSpecialites(){
+
+    public List<specialite> findAllSpecialites() {
         return specialiteRepo.findAll();
     }
+
     public specialite updateSpecialite(specialite specialite, Integer codeSpec, String libSpec) {
         Optional<specialite> optionalSpecialite = specialiteRepo.findSpecialiteBycodeSpec(codeSpec);
         specialite myspecialite = optionalSpecialite.orElseThrow(() -> new specialiteNotFoundException("specialite by id " + codeSpec + " was not found"));
         myspecialite.setLibSpec(libSpec);
         return specialiteRepo.save(myspecialite);
     }
+
     public specialite findSpecialiteBycodeSpec(Integer codeSpec) {
         return specialiteRepo.findSpecialiteBycodeSpec(codeSpec).orElseThrow(() -> new specialiteNotFoundException("specialite by id " + codeSpec + " was not found"));
     }
-    public void deleteSpecialite(Integer codeSpec){
+
+    public void deleteSpecialite(Integer codeSpec) {
         specialiteRepo.deleteSpecialiteByCodeSpec(codeSpec);
     }
-
-
 }
