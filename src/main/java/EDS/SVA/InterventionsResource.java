@@ -6,17 +6,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
-@RequestMapping("/interventions")
-public class InterventionsResouce {
-
+@RequestMapping("/Interventions")
+public class InterventionsResource {
     private final InterventionsService interventionsService;
 
-    public InterventionsResouce(InterventionsService interventionsService) {
+    public InterventionsResource(InterventionsService interventionsService) {
         this.interventionsService = interventionsService;
     }
 
@@ -39,12 +38,8 @@ public class InterventionsResouce {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Interventions> updateIntervention(@RequestBody Interventions intervention, @PathVariable Long id,
-                                                            @RequestParam LocalDate dateDeb, @RequestParam LocalDate dateFin,
-                                                            @RequestParam Duration duree, @RequestParam String observation,
-                                                            @RequestParam boolean cloturer, @RequestParam double MontantHT,
-                                                            @RequestParam boolean facturer, @RequestParam String cause) {
-        Interventions updatedIntervention = interventionsService.updateIntervention(intervention, id, dateDeb, dateFin, duree, observation, cloturer, MontantHT, facturer, cause);
+    public ResponseEntity<Interventions> updateIntervention(@RequestBody Interventions intervention, @PathVariable Long id, @RequestParam String cause, @RequestParam Boolean facturer, @RequestParam Double montantHT, @RequestParam Boolean cloturer, @RequestParam LocalDate dateDeb, @RequestParam LocalDate dateFin) {
+        Interventions updatedIntervention = interventionsService.updateIntervention(intervention, id, cause, facturer, montantHT, cloturer, dateDeb,dateFin);
         return new ResponseEntity<>(updatedIntervention, HttpStatus.OK);
     }
 
