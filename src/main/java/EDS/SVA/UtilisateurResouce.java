@@ -1,5 +1,6 @@
 package EDS.SVA;
 
+import EDS.SVA.Entity.specialite;
 import  EDS.SVA.Entity.utilisateur;
 import  EDS.SVA.service.utilisateurService;
 import org.springframework.http.HttpStatus;
@@ -36,8 +37,8 @@ public class UtilisateurResouce {
         return new ResponseEntity<>(newUtilisateur, HttpStatus.CREATED);
     }
     @PutMapping("/update/{id}")
-    public ResponseEntity<utilisateur> updateUtilisateur(@RequestBody utilisateur utilisateur, @PathVariable Long id, @RequestParam String nom, @RequestParam String prenom, @RequestParam String email,@RequestParam String adresse, @RequestParam String role, @RequestParam String tel,@RequestParam String login,@RequestParam String mp) {
-        utilisateur updateUtilisateur = utilisateurService.updateUtilisateur(utilisateur, id, nom,prenom,adresse,tel,email,mp,login,role);
+    public ResponseEntity<utilisateur> updateUtilisateur(@RequestBody utilisateur utilisateur, @PathVariable Long id, @RequestParam String nom, @RequestParam String prenom, @RequestParam String email, @RequestParam String adresse, @RequestParam String role, @RequestParam String tel, @RequestParam String login, @RequestParam String mp, @RequestParam String specialite) {
+        utilisateur updateUtilisateur = utilisateurService.updateUtilisateur(utilisateur, id, nom,prenom,adresse,tel,email,mp,login,role,specialite);
         return new ResponseEntity<>(updateUtilisateur, HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")

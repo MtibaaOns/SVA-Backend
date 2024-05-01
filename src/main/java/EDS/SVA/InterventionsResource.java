@@ -38,8 +38,8 @@ public class InterventionsResource {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Interventions> updateIntervention(@RequestBody Interventions intervention, @PathVariable Long id, @RequestParam String cause, @RequestParam Boolean facturer, @RequestParam Double montantHT, @RequestParam Boolean cloturer, @RequestParam LocalDate dateDeb, @RequestParam LocalDate dateFin) {
-        Interventions updatedIntervention = interventionsService.updateIntervention(intervention, id, cause, facturer, montantHT, cloturer, dateDeb,dateFin);
+    public ResponseEntity<Interventions> updateIntervention(@RequestBody Interventions intervention, @PathVariable Long id, @RequestParam String cause, @RequestParam Boolean facturer, @RequestParam Double montantHT, @RequestParam Boolean cloturer, @RequestParam LocalDate dateDeb, @RequestParam LocalDate dateFin, @RequestParam String duree, @RequestParam String observation) {
+        Interventions updatedIntervention = interventionsService.updateIntervention(intervention, id, cause, facturer, montantHT, cloturer, dateDeb, dateFin, duree, observation);
         return new ResponseEntity<>(updatedIntervention, HttpStatus.OK);
     }
 

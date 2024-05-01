@@ -19,6 +19,7 @@ public class contrat implements Serializable {
     private Integer nbInterMois;
     private Integer nbInterAnnee;
     private Double mtForfaitaire;
+    private String client;
     public  contrat(){
 
     }
@@ -30,6 +31,7 @@ public class contrat implements Serializable {
         this.nbInterMois = nbInterMois;
         this.nbInterAnnee = nbInterAnnee;
         this.mtForfaitaire = mtForfaitaire;
+        this.client = client;
     }
     public void setNumcontrat(Long numcontrat) {
         this.numcontrat = numcontrat;
@@ -84,6 +86,13 @@ public class contrat implements Serializable {
     public String getCode() {
         return code;
     }
+    public void setClient(String client) {
+        this.client = client;
+    }
+
+    public String getClient() {
+        return client;
+    }
 
 
 
@@ -91,6 +100,7 @@ public class contrat implements Serializable {
         return "Contrat{" +
                 "numcontrat=" + numcontrat +
                 ", dateDebut=" + dateDebut +
+                ", client=" + client +
                 ", code=" + code +
                 ", dateFin=" + dateFin +
                 ", nbInterMois=" + nbInterMois +

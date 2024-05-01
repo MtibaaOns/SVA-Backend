@@ -35,8 +35,8 @@ public class contratResouce {
         contrat newContrat = contratService.addContrat(contrat) ;
         return new ResponseEntity<>(newContrat, HttpStatus.CREATED);}
     @PutMapping("/update/{numcontart}")
-    public ResponseEntity<contrat> updateContrat(@RequestBody contrat contrat, @PathVariable Long numcontart, @RequestParam LocalDate dateDebut,@RequestParam LocalDate dateFin,@RequestParam Integer nbInterMois,@RequestParam Integer nbInterAnnee,@RequestParam Double mtForfaitaire) {
-        contrat updateContrat = contratService.updateContrat(contrat, numcontart,dateDebut,dateFin, nbInterMois,nbInterAnnee,mtForfaitaire);
+    public ResponseEntity<contrat> updateContrat(@RequestBody contrat contrat, @PathVariable Long numcontart, @RequestParam LocalDate dateDebut,@RequestParam LocalDate dateFin,@RequestParam Integer nbInterMois,@RequestParam Integer nbInterAnnee,@RequestParam Double mtForfaitaire,@RequestParam String client) {
+        contrat updateContrat = contratService.updateContrat(contrat, numcontart,dateDebut,dateFin, nbInterMois,nbInterAnnee,mtForfaitaire,client);
         return new ResponseEntity<>(updateContrat, HttpStatus.OK);
     }
 

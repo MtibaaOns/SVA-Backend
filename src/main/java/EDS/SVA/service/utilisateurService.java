@@ -2,6 +2,7 @@ package EDS.SVA.service;
 
 import EDS.SVA.Entity.utilisateur;
 
+
 import EDS.SVA.exception.UtilisateurNotFoundException;
 import EDS.SVA.repo.utilisateurRepo;
 import jakarta.transaction.Transactional;
@@ -30,7 +31,7 @@ public class utilisateurService {
     public List<utilisateur> findAllUtilisateurs(){
         return utilisateurRepo.findAll();
     }
-    public utilisateur updateUtilisateur(utilisateur utilisateur, Long id, String nom, String prenom,String adresse,String tel,String email,String login,String mp,String role) {
+    public utilisateur updateUtilisateur(utilisateur utilisateur, Long id, String nom, String prenom,String adresse,String tel,String email,String login,String mp,String role,String specialite) {
         Optional<utilisateur> optionalUtilisateur = utilisateurRepo.findUtilisateurById(id);
 
         utilisateur myutilisateur = optionalUtilisateur.orElseThrow(() -> new UtilisateurNotFoundException("utilisateur by id " + id + " was not found"));
@@ -41,9 +42,11 @@ public class utilisateurService {
         myutilisateur.setAdresse(adresse);
         myutilisateur.setEmail(email);
         myutilisateur.setTel(tel);
-        myutilisateur.setMt(mp);
+        myutilisateur.setMp(mp);
         myutilisateur.setLogin(login);
         myutilisateur.setRole(role);
+        myutilisateur.setSpecialite(specialite);
+
         // Vous pouvez également mettre à jour d'autres propriétés si nécessaire
 
         return utilisateurRepo.save(myutilisateur);
@@ -55,6 +58,7 @@ public class utilisateurService {
     public void deleteUtilisateur(Long id){
         utilisateurRepo.deleteUtilisateurById(id);
     }
+
 }
 
 
