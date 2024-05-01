@@ -1,2 +1,7 @@
-package EDS.SVA.exception;public class FactureNotFoundException {
+package EDS.SVA.exception;
+
+public class FactureNotFoundException extends RuntimeException {
+    public FactureNotFoundException(String message) {
+        super(message);
+    }
 }

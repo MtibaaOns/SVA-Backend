@@ -21,11 +21,12 @@ public class Interventions implements Serializable {
     private String code;
     private String duree;
     private String observation;
+    private String technicien;
 
     public Interventions() {
     }
 
-    public Interventions(String cause, Boolean facturer, Double montantHT, Boolean cloturer, LocalDate dateDeb, LocalDate dateFin, String code, String duree, String observation) {
+    public Interventions(String cause, Boolean facturer, Double montantHT, Boolean cloturer, LocalDate dateDeb, LocalDate dateFin, String code, String duree, String observation, String technicien) {
         this.cause = cause;
         this.facturer = facturer;
         this.montantHT = montantHT;
@@ -35,6 +36,7 @@ public class Interventions implements Serializable {
         this.code = code;
         this.duree = duree;
         this.observation = observation;
+        this.technicien = technicien;
     }
 
     public void setId(Long id) {
@@ -117,6 +119,14 @@ public class Interventions implements Serializable {
         return observation;
     }
 
+    public void setTechnicien(String technicien) {
+        this.technicien = technicien;
+    }
+
+    public String getTechnicien() {
+        return technicien;
+    }
+
     public String toString() {
         return "Intervention{" +
                 "id=" + id +
@@ -129,6 +139,7 @@ public class Interventions implements Serializable {
                 ", code='" + code + '\'' +
                 ", duree='" + duree + '\'' +
                 ", observation='" + observation + '\'' +
+                ", technicien='" + technicien + '\'' +
                 '}';
     }
 }
