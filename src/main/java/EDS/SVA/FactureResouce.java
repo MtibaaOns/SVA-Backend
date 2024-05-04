@@ -38,8 +38,8 @@ public class FactureResouce {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Facture> updateFacture(@RequestBody Facture facture, @PathVariable Long id, @RequestParam LocalDate date, @RequestParam String client, @RequestParam Double totalHT,@RequestParam Double totalTTC, @RequestParam Integer tva, @RequestParam String intervention) {
-        Facture updatedFacture = factureService.updateFacture(facture, id, date, client, totalHT, totalTTC,tva, intervention);
+    public ResponseEntity<Facture> updateFacture(@RequestBody Facture facture, @PathVariable Long id, @RequestParam String date, @RequestParam String client, @RequestParam Double totalHT,@RequestParam Double totalTTC, @RequestParam Integer tva) {
+        Facture updatedFacture = factureService.updateFacture(facture, id, date, client, totalHT, totalTTC,tva);
         return new ResponseEntity<>(updatedFacture, HttpStatus.OK);
     }
 

@@ -1,27 +1,31 @@
 package EDS.SVA.Entity;
+
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import java.io.Serializable;
-import java.time.LocalDate;
+
 @Entity
 @Table(name = "demande_intervention")
 public class demande_intervention implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false,updatable = false)
+    @Column(nullable = false, updatable = false)
     private Long numDem;
+
     @Column(name = "code")
     private String code;
+
     private String statut;
     private String titre;
     private String priorite;
-    private LocalDate dateFin;
-    private LocalDate dateDeb;
+    private String dateFin; // Changement de LocalDate en String
+    private String dateDeb; // Changement de LocalDate en String
     private String description;
-    public demande_intervention(){
 
+    public demande_intervention() {
     }
-    public demande_intervention(Long numDem, String statut, String titre, String priorite,  LocalDate dateDeb,LocalDate dateFin, String description) {
+
+    public demande_intervention(Long numDem, String statut, String titre, String priorite, String dateDeb, String dateFin, String description) {
         this.numDem = numDem;
         this.statut = statut;
         this.titre = titre;
@@ -34,7 +38,6 @@ public class demande_intervention implements Serializable {
     public Long getNumDem() {
         return numDem;
     }
-
 
     public void setNumDem(Long numDem) {
         this.numDem = numDem;
@@ -64,19 +67,19 @@ public class demande_intervention implements Serializable {
         this.priorite = priorite;
     }
 
-    public LocalDate getDateFin() {
+    public String getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(LocalDate dateFin) {
+    public void setDateFin(String dateFin) {
         this.dateFin = dateFin;
     }
 
-    public LocalDate getDateDeb() {
+    public String getDateDeb() {
         return dateDeb;
     }
 
-    public void setDateDeb(LocalDate dateDeb) {
+    public void setDateDeb(String dateDeb) {
         this.dateDeb = dateDeb;
     }
 
@@ -91,10 +94,10 @@ public class demande_intervention implements Serializable {
     public void setCode(String code) {
         this.code = code;
     }
+
     public String getCode() {
         return code;
     }
-
 
     @Override
     public String toString() {
@@ -104,8 +107,8 @@ public class demande_intervention implements Serializable {
                 ", statut='" + statut + '\'' +
                 ", titre='" + titre + '\'' +
                 ", priorite='" + priorite + '\'' +
-                ", dateFin=" + dateFin +
-                ", dateDeb=" + dateDeb +
+                ", dateFin='" + dateFin + '\'' +
+                ", dateDeb='" + dateDeb + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }

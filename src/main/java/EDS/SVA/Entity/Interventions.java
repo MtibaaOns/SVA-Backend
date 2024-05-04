@@ -2,7 +2,6 @@ package EDS.SVA.Entity;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "intervention")
@@ -16,17 +15,18 @@ public class Interventions implements Serializable {
     private Boolean facturer;
     private Double montantHT;
     private Boolean cloturer;
-    private LocalDate dateDeb;
-    private LocalDate dateFin;
+    private String dateDeb;
+    private String dateFin;
     private String code;
     private String duree;
     private String observation;
     private String technicien;
+    private String client;
 
     public Interventions() {
     }
 
-    public Interventions(String cause, Boolean facturer, Double montantHT, Boolean cloturer, LocalDate dateDeb, LocalDate dateFin, String code, String duree, String observation, String technicien) {
+    public Interventions(String cause, Boolean facturer, Double montantHT, Boolean cloturer, String dateDeb, String dateFin, String code, String duree, String observation, String technicien, String client) {
         this.cause = cause;
         this.facturer = facturer;
         this.montantHT = montantHT;
@@ -37,6 +37,7 @@ public class Interventions implements Serializable {
         this.duree = duree;
         this.observation = observation;
         this.technicien = technicien;
+        this.client = client;
     }
 
     public void setId(Long id) {
@@ -79,19 +80,19 @@ public class Interventions implements Serializable {
         return cloturer;
     }
 
-    public void setDateDeb(LocalDate dateDeb) {
+    public void setDateDeb(String dateDeb) {
         this.dateDeb = dateDeb;
     }
 
-    public LocalDate getDateDeb() {
+    public String getDateDeb() {
         return dateDeb;
     }
 
-    public void setDateFin(LocalDate dateFin) {
+    public void setDateFin(String dateFin) {
         this.dateFin = dateFin;
     }
 
-    public LocalDate getDateFin() {
+    public String getDateFin() {
         return dateFin;
     }
 
@@ -127,6 +128,14 @@ public class Interventions implements Serializable {
         return technicien;
     }
 
+    public void setClient(String client) {
+        this.client = client;
+    }
+
+    public String getClient() {
+        return client;
+    }
+
     public String toString() {
         return "Intervention{" +
                 "id=" + id +
@@ -134,12 +143,13 @@ public class Interventions implements Serializable {
                 ", facturer=" + facturer +
                 ", montantHT=" + montantHT +
                 ", cloturer=" + cloturer +
-                ", dateDeb=" + dateDeb +
-                ", dateFin=" + dateFin +
+                ", dateDeb='" + dateDeb + '\'' +
+                ", dateFin='" + dateFin + '\'' +
                 ", code='" + code + '\'' +
                 ", duree='" + duree + '\'' +
                 ", observation='" + observation + '\'' +
                 ", technicien='" + technicien + '\'' +
+                ", client='" + client + '\'' +
                 '}';
     }
 }

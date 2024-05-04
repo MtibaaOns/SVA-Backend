@@ -28,7 +28,7 @@ public class InterventionsService {
         return interventionsRepo.findAll();
     }
 
-    public Interventions updateIntervention(Interventions intervention, Long id, String cause, Boolean facturer, Double montantHT, Boolean cloturer, LocalDate dateDeb, LocalDate dateFin, String duree, String observation, String technicien) {
+    public Interventions updateIntervention(Interventions intervention, Long id, String cause, Boolean facturer, Double montantHT, Boolean cloturer, String dateDeb, String dateFin, String duree, String observation, String technicien,String client) {
         Optional<Interventions> optionalIntervention = interventionsRepo.findInterventionById(id);
         Interventions myIntervention = optionalIntervention.orElseThrow(() -> new InterventionsNotFoundException("Intervention by id " + id + " was not found"));
 
@@ -41,6 +41,7 @@ public class InterventionsService {
         myIntervention.setDuree(duree);
         myIntervention.setObservation(observation);
         myIntervention.setTechnicien(technicien);
+        myIntervention.setClient((client));
 
         return interventionsRepo.save(myIntervention);
     }

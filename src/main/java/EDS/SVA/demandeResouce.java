@@ -36,7 +36,7 @@ public class demandeResouce {
         demande_intervention newDemande = demandeService.addDemande(demandeIntervention) ;
         return new ResponseEntity<>(newDemande, HttpStatus.CREATED);}
     @PutMapping("/update/{numDem}")
-    public ResponseEntity<demande_intervention> updateDemande(@RequestBody demande_intervention demandeIntervention,@PathVariable Long numDem,@RequestParam String statut,@RequestParam String titre,@RequestParam String priorite,@RequestParam LocalDate dateDeb,@RequestParam LocalDate dateFin,@RequestParam String description) {
+    public ResponseEntity<demande_intervention> updateDemande(@RequestBody demande_intervention demandeIntervention,@PathVariable Long numDem,@RequestParam String statut,@RequestParam String titre,@RequestParam String priorite,@RequestParam String dateDeb,@RequestParam String dateFin,@RequestParam String description) {
         demande_intervention updateDemande = demandeService.updateDemande(demandeIntervention,numDem,statut,titre,priorite,dateFin,dateDeb,description);
         return new ResponseEntity<>(updateDemande, HttpStatus.OK);
     }

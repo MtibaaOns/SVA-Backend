@@ -29,7 +29,7 @@ public class demandeService {
         return demandeRepo.findAll();
     }
 
-    public demande_intervention updateDemande(demande_intervention demande_intervention, Long numDem, String statut, String titre, String priorite, LocalDate dateDeb, LocalDate dateFin, String description) {
+    public demande_intervention updateDemande(demande_intervention demande_intervention, Long numDem, String statut, String titre, String priorite, String dateDeb, String dateFin, String description) {
         Optional<demande_intervention> optionalDemande = demandeRepo.findDemandeBynumDem(numDem);
         demande_intervention myDemande = optionalDemande.orElseThrow(() -> new demandeNotFoundException("Client by id " + numDem + " was not found"));
 

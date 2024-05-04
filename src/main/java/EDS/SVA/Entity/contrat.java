@@ -2,7 +2,6 @@ package EDS.SVA.Entity;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import java.io.Serializable;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "contrat")
@@ -14,8 +13,8 @@ public class contrat implements Serializable {
 
     @Column(name = "code")
     private String code;
-    private LocalDate dateDebut;
-    private LocalDate dateFin;
+    private String dateDebut;
+    private String dateFin;
     private Integer nbInterMois;
     private Integer nbInterAnnee;
     private Double mtForfaitaire;
@@ -24,7 +23,7 @@ public class contrat implements Serializable {
 
     }
 
-    public contrat(Long numcontrat, LocalDate dateDebut, LocalDate dateFin, Integer nbInterMois, Integer nbInterAnnee, Double mtForfaitaire) {
+    public contrat(Long numcontrat, String dateDebut, String dateFin, Integer nbInterMois, Integer nbInterAnnee, Double mtForfaitaire) {
         this.numcontrat = numcontrat;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
@@ -37,11 +36,11 @@ public class contrat implements Serializable {
         this.numcontrat = numcontrat;
     }
 
-    public void setDateDebut(LocalDate dateDebut) {
+    public void setDateDebut(String dateDebut) {
         this.dateDebut = dateDebut;
     }
 
-    public void setDateFin(LocalDate dateFin) {
+    public void setDateFin(String dateFin) {
         this.dateFin = dateFin;
     }
 
@@ -64,11 +63,11 @@ public class contrat implements Serializable {
         return numcontrat;
     }
 
-    public LocalDate getDateDebut() {
+    public String getDateDebut() {
         return dateDebut;
     }
 
-    public LocalDate getDateFin() {
+    public String getDateFin() {
         return dateFin;
     }
 

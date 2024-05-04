@@ -24,15 +24,19 @@ public class PieceRechange implements Serializable {
     @Column(name = "taux_tva")
     private Integer tauxTVA;
 
+    @Column(name = "categorie_piece")
+    private String categoriePiece;
+
     public PieceRechange() {
         // Constructeur par défaut requis par JPA
     }
 
-    public PieceRechange(String codePiece, String desPiece, double prixAchat, Integer tauxTVA) {
+    public PieceRechange(String codePiece, String desPiece, double prixAchat, Integer tauxTVA, String categoriePiece) {
         this.codePiece = codePiece;
         this.desPiece = desPiece;
         this.prixAchat = prixAchat;
         this.tauxTVA = tauxTVA;
+        this.categoriePiece = categoriePiece;
     }
 
     public Long getId() {
@@ -67,12 +71,20 @@ public class PieceRechange implements Serializable {
         this.prixAchat = prixAchat;
     }
 
-    public double getTauxTVA() {
+    public Integer getTauxTVA() {
         return tauxTVA;
     }
 
     public void setTauxTVA(Integer tauxTVA) {
         this.tauxTVA = tauxTVA;
+    }
+
+    public String getCategoriePiece() {
+        return categoriePiece;
+    }
+
+    public void setCategoriePiece(String categoriePiece) {
+        this.categoriePiece = categoriePiece;
     }
 
     @Override
@@ -83,6 +95,7 @@ public class PieceRechange implements Serializable {
                 ", desPiece='" + desPiece + '\'' +
                 ", prixAchat=" + prixAchat +
                 ", tauxTVA=" + tauxTVA +
+                ", categoriePiece='" + categoriePiece + '\'' +
                 '}';
     }
 }

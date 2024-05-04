@@ -1,2 +1,7 @@
-package EDS.SVA.exception;public class StockNotFoundException {
+package EDS.SVA.exception;
+
+public class StockNotFoundException extends RuntimeException {
+    public StockNotFoundException(String message) {
+        super(message);
+    }
 }

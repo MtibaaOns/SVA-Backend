@@ -16,7 +16,7 @@ public class Facture implements Serializable {
     private String code;
 
     @Column(name = "date")
-    private LocalDate date;
+    private String date;
 
     @Column(name = "client")
     private String client;
@@ -30,19 +30,18 @@ public class Facture implements Serializable {
     @Column(name = "totalTTC")
     private Double totalTTC;
 
-    @Column(name = "intervention")
-    private String intervention;
+
 
     public Facture() {
     }
 
-    public Facture(String code, LocalDate date, String client, Double totalHT, Integer tva, String intervention) {
+    public Facture(String code, String date, String client, Double totalHT, Integer tva) {
         this.code = code;
         this.date = date;
         this.client = client;
         this.totalHT = totalHT;
         this.tva = tva;
-        this.intervention = intervention;
+
     }
 
     public Long getId() {
@@ -61,11 +60,11 @@ public class Facture implements Serializable {
         this.code = code;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -93,13 +92,7 @@ public class Facture implements Serializable {
         this.tva = tva;
     }
 
-    public String getIntervention() {
-        return intervention;
-    }
 
-    public void setIntervention(String intervention) {
-        this.intervention = intervention;
-    }
 
     public Double getTotalTTC() {
         return totalTTC;
@@ -118,7 +111,6 @@ public class Facture implements Serializable {
                 ", client='" + client + '\'' +
                 ", totalHT=" + totalHT +
                 ", tva=" + tva +
-                ", intervention='" + intervention + '\'' +
                 ", totalTTC=" + totalTTC +
                 '}';
     }

@@ -27,7 +27,7 @@ public class FactureService {
         return factureRepo.findAll();
     }
 
-    public Facture updateFacture(Facture facture, Long id, LocalDate date, String client, Double totalHT,Double totalTTC, Integer tva, String intervention) {
+    public Facture updateFacture(Facture facture, Long id, String date, String client, Double totalHT,Double totalTTC, Integer tva) {
         Optional<Facture> optionalFacture = factureRepo.findFactureById(id);
         Facture myFacture = optionalFacture.orElseThrow(() -> new FactureNotFoundException("Facture by id " + id + " was not found"));
 
@@ -36,7 +36,7 @@ public class FactureService {
         myFacture.setTotalHT(totalHT);
         myFacture.setTotalTTC(totalTTC);
         myFacture.setTva(tva);
-        myFacture.setIntervention(intervention);
+
 
         return factureRepo.save(myFacture);
     }

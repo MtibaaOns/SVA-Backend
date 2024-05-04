@@ -37,12 +37,14 @@ public class PieceRechangeService {
     /**
      * Met à jour une pièce de rechange existante
      */
-    public PieceRechange updatePieceRechange(Long id, String desPiece, double prixAchat, Integer tauxTVA) {
+    public PieceRechange updatePieceRechange(Long id, String desPiece, double prixAchat, Integer tauxTVA,String categoriePiece) {
         Optional<PieceRechange> optionalPieceRechange = pieceRechangeRepo.findPieceRechangeById(id);
         PieceRechange myPieceRechange = optionalPieceRechange.orElseThrow(() -> new PieceRechangeNotFoundException("PieceRechange by id " + id + " was not found"));
         myPieceRechange.setDesPiece(desPiece);
         myPieceRechange.setPrixAchat(prixAchat);
         myPieceRechange.setTauxTVA(tauxTVA);
+        myPieceRechange.setCategoriePiece(categoriePiece);
+
         return pieceRechangeRepo.save(myPieceRechange);
     }
 

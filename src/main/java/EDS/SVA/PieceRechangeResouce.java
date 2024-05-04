@@ -36,8 +36,8 @@ public class PieceRechangeResouce {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<PieceRechange> updatePieceRechange(@PathVariable Long id, @RequestParam String desPiece, @RequestParam double prixAchat, @RequestParam Integer tauxTVA) {
-        PieceRechange updatedPieceRechange = pieceRechangeService.updatePieceRechange(id, desPiece, prixAchat, tauxTVA);
+    public ResponseEntity<PieceRechange> updatePieceRechange(@PathVariable Long id, @RequestParam String desPiece, @RequestParam double prixAchat, @RequestParam Integer tauxTVA, @RequestParam String categoriePiece) {
+        PieceRechange updatedPieceRechange = pieceRechangeService.updatePieceRechange(id, desPiece, prixAchat, tauxTVA, categoriePiece);
         return new ResponseEntity<>(updatedPieceRechange, HttpStatus.OK);
     }
 
