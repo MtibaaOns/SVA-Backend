@@ -1,9 +1,14 @@
 package EDS.SVA.Entity;
 
 import jakarta.persistence.*;
+
+
+
 import java.io.Serializable;
 
 @Entity
+
+
 @Table(name = "piece_rechange")
 public class PieceRechange implements Serializable {
 
@@ -26,17 +31,24 @@ public class PieceRechange implements Serializable {
 
     @Column(name = "categorie_piece")
     private String categoriePiece;
+    @Column(name = "quantite_piece")
+    private Integer quantitePiece;
+
+
+
+
 
     public PieceRechange() {
         // Constructeur par défaut requis par JPA
     }
 
-    public PieceRechange(String codePiece, String desPiece, double prixAchat, Integer tauxTVA, String categoriePiece) {
+    public PieceRechange(String codePiece, String desPiece, double prixAchat, Integer tauxTVA, String categoriePiece,Integer quantitePiece) {
         this.codePiece = codePiece;
         this.desPiece = desPiece;
         this.prixAchat = prixAchat;
         this.tauxTVA = tauxTVA;
         this.categoriePiece = categoriePiece;
+        this.quantitePiece= quantitePiece;
     }
 
     public Long getId() {
@@ -86,6 +98,13 @@ public class PieceRechange implements Serializable {
     public void setCategoriePiece(String categoriePiece) {
         this.categoriePiece = categoriePiece;
     }
+    public Integer getQuantitePiece() {
+        return quantitePiece;
+    }
+
+    public void setQuantitePiece(Integer quantitePiece) {
+        this.quantitePiece = quantitePiece;
+    }
 
     @Override
     public String toString() {
@@ -96,6 +115,7 @@ public class PieceRechange implements Serializable {
                 ", prixAchat=" + prixAchat +
                 ", tauxTVA=" + tauxTVA +
                 ", categoriePiece='" + categoriePiece + '\'' +
+                ", quantitePiece=" + quantitePiece +
                 '}';
     }
 }
